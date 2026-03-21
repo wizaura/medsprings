@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Toaster } from "react-hot-toast";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -58,6 +59,18 @@ export default function RootLayout({
         </main>
 
         <Footer />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              borderRadius: "8px",
+              background: "#111",
+              color: "#fff",
+              fontSize: "14px",
+            },
+          }}
+        />
       </body>
     </html>
   );

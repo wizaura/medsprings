@@ -1,11 +1,13 @@
 "use client";
 
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import toast from "react-hot-toast";
 import { FaWhatsapp } from "react-icons/fa";
+import ProductSelect from "@/components/common/ProductSelect";
+import { useEffect } from "react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -16,11 +18,17 @@ const schema = z.object({
   message: z.string().min(5, "Message required"),
 });
 
-export default function ContactForm() {
+export default function ContactForm({
+  preselectedProduct,
+}: {
+  preselectedProduct?: string;
+}) {
 
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     reset,
     formState: { errors, isSubmitting }
   } = useForm({
@@ -33,6 +41,9 @@ export default function ContactForm() {
 
       const res = await fetch("/api/contact", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       });
 
@@ -46,6 +57,12 @@ export default function ContactForm() {
     }
 
   };
+
+  useEffect(() => {
+    if (preselectedProduct) {
+      setValue("product", preselectedProduct);
+    }
+  }, [preselectedProduct, setValue]);
 
   return (
     <section className="py-24 px-6 bg-white">
@@ -109,27 +126,41 @@ export default function ContactForm() {
         {/* RIGHT FORM */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-white p-10 rounded-xl border border-gray-200 shadow-sm space-y-6"
+          className="bg-white p-10 rounded-xl border border-gray-200 shadow-sm space-y-4"
         >
 
           <div className="grid md:grid-cols-2 gap-6">
 
             <div>
+              <label className="text-sm font-medium text-gray-700">
+                Full Name
+              </label>
               <input
                 {...register("name")}
-                placeholder="Full Name"
-                className="border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
+                placeholder="John Doe"
+                className="mt-1 border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
               />
-              {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.name.message}
+                </p>
+              )}
             </div>
 
             <div>
+              <label className="text-sm font-medium text-gray-700">
+                Email Address
+              </label>
               <input
                 {...register("email")}
-                placeholder="Email"
-                className="border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
+                placeholder="you@example.com"
+                className="mt-1 border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
               />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
           </div>
@@ -137,49 +168,76 @@ export default function ContactForm() {
           <div className="grid md:grid-cols-2 gap-6">
 
             <div>
+              <label className="text-sm font-medium text-gray-700">
+                Country
+              </label>
               <input
                 {...register("country")}
-                placeholder="Country"
-                className="border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
+                placeholder="India"
+                className="mt-1 border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
               />
-              {errors.country && <p className="text-red-500 text-sm">{errors.country.message}</p>}
+              {errors.country && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.country.message}
+                </p>
+              )}
             </div>
 
             <div>
+              <label className="text-sm font-medium text-gray-700">
+                Quantity Required
+              </label>
               <input
                 {...register("quantity")}
-                placeholder="Quantity"
-                className="border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
+                placeholder="e.g. 100 units"
+                className="mt-1 border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
               />
-              {errors.quantity && <p className="text-red-500 text-sm">{errors.quantity.message}</p>}
+              {errors.quantity && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.quantity.message}
+                </p>
+              )}
             </div>
 
           </div>
 
-          <select
-            {...register("product")}
-            className="border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
-          >
-            <option value="">Product Interest</option>
-            <option>Ophthalmic Devices</option>
-            <option>Medical Instruments</option>
-            <option>Pharmaceuticals</option>
-          </select>
+          <div>
+            <label className="text-sm font-medium text-gray-700">
+              Product Interest
+            </label>
 
-          {errors.product && (
-            <p className="text-red-500 text-sm">{errors.product.message}</p>
-          )}
+            <div className="mt-1">
+              <ProductSelect
+                value={watch("product")}
+                onChange={(val) => setValue("product", val)}
+              />
+            </div>
 
-          <textarea
-            {...register("message")}
-            placeholder="Message"
-            rows={4}
-            className="border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
-          />
+            {errors.product && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.product.message}
+              </p>
+            )}
+          </div>
 
-          {errors.message && (
-            <p className="text-red-500 text-sm">{errors.message.message}</p>
-          )}
+          <div>
+            <label className="text-sm font-medium text-gray-700">
+              Message
+            </label>
+
+            <textarea
+              {...register("message")}
+              placeholder="Tell us about your requirements..."
+              rows={3}
+              className="mt-1 border border-gray-200 rounded-md px-4 py-3 w-full focus:outline-none focus:border-brand"
+            />
+
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.message.message}
+              </p>
+            )}
+          </div>
 
           <button
             disabled={isSubmitting}
