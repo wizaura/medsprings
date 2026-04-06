@@ -1,3 +1,4 @@
+import PageHero from "@/components/common/PageHero";
 import ProductDetails from "@/components/products/Details";
 
 async function getProduct(slug: string) {
@@ -20,5 +21,14 @@ export default async function ProductPage({
 
   const data = await getProduct(slug);
 
-  return <ProductDetails data={data} />;
+  return (
+    <div>
+      <PageHero
+        title={data.name}
+        description={`${data.shortDesc || "Discover advanced medical solutions designed to support healthcare professionals with precision, safety, and performance in every clinical setting." }`}
+        image={data.image3}
+      />
+      <ProductDetails data={data} />;
+    </div>
+  )
 }

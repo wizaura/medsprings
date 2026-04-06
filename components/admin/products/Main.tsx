@@ -19,7 +19,15 @@ export default function ProductsAdmin() {
     const [description, setDescription] = useState("");
     const [categoryId, setCategoryId] = useState("");
 
-    const [benefits, setBenefits] = useState<string[]>([""]);
+    const [tagline, setTagline] = useState("");
+    const [shortDesc, setShortDesc] = useState("");
+
+    const [features, setFeatures] = useState<string[]>([""]);
+
+    const [specs, setSpecs] = useState([{ feature: "", value: "" }]);
+
+    const [image3, setImage3] = useState<File | null>(null);
+    const [preview3, setPreview3] = useState<string | null>(null);
 
     const [image1, setImage1] = useState<File | null>(null);
     const [image2, setImage2] = useState<File | null>(null);
@@ -71,15 +79,10 @@ export default function ProductsAdmin() {
         }
     };
 
-    // Benefits
-    const addBenefit = () => setBenefits([...benefits, ""]);
-    const updateBenefit = (i: number, val: string) => {
-        const copy = [...benefits];
-        copy[i] = val;
-        setBenefits(copy);
-    };
-    const removeBenefit = (i: number) => {
-        setBenefits(benefits.filter((_, index) => index !== i));
+    const handleImage3 = (file: File | null) => {
+        if (!file) return;
+        setImage3(file);
+        setPreview3(URL.createObjectURL(file));
     };
 
     // 🚀 Submit
@@ -95,9 +98,14 @@ export default function ProductsAdmin() {
         try {
             const formData = new FormData();
             formData.append("name", name);
+            formData.append("tagline", tagline);
+            formData.append("shortDesc", shortDesc);
             formData.append("description", description);
             formData.append("categoryId", categoryId);
-            formData.append("benefits", JSON.stringify(benefits.filter(b => b.trim())));
+            formData.append("features", JSON.stringify(features));
+            formData.append("specifications", JSON.stringify(specs));
+
+            if (image3) formData.append("image3", image3);
 
             if (image1) formData.append("image1", image1);
             if (image2) formData.append("image2", image2);
@@ -133,15 +141,21 @@ export default function ProductsAdmin() {
         setOpenForm(true);
 
         setName(p.name);
-        setDescription(p.description);
+        setTagline(p.tagline || "");
+        setShortDesc(p.shortDesc || "");
+        setDescription(p.description || "");
         setCategoryId(p.categoryId);
-        setBenefits(p.benefits || []);
 
-        setPreview1(p.image1);
-        setPreview2(p.image2);
+        setFeatures(p.features || [""]);
+        setSpecs(p.specifications || [{ feature: "", value: "" }]);
+
+        setPreview1(p.image1 || null);
+        setPreview2(p.image2 || null);
+        setPreview3(p.image3 || null);
 
         setImage1(null);
         setImage2(null);
+        setImage3(null);
     };
 
     // 🗑 Delete
@@ -174,13 +188,22 @@ export default function ProductsAdmin() {
     const resetForm = () => {
         setEditing(null);
         setName("");
+        setTagline("");
+        setShortDesc("");
         setDescription("");
         setCategoryId("");
-        setBenefits([""]);
+
+        setFeatures([""]);
+        setSpecs([{ feature: "", value: "" }]);
+
         setImage1(null);
         setImage2(null);
+        setImage3(null);
+
         setPreview1(null);
         setPreview2(null);
+        setPreview3(null);
+
         setError("");
     };
 
@@ -232,6 +255,20 @@ export default function ProductsAdmin() {
                         className="border border-gray-200 px-4 py-2 rounded w-full"
                     />
 
+                    <input
+                        placeholder="Tagline (e.g. Elite Cohesive Performance...)"
+                        value={tagline}
+                        onChange={(e) => setTagline(e.target.value)}
+                        className="border border-gray-200 px-4 py-2 rounded w-full"
+                    />
+
+                    <textarea
+                        placeholder="Short Description (Intro paragraph)"
+                        value={shortDesc}
+                        onChange={(e) => setShortDesc(e.target.value)}
+                        className="border border-gray-200 px-4 py-2 rounded w-full"
+                    />
+
                     <textarea
                         placeholder="Description"
                         value={description}
@@ -250,21 +287,73 @@ export default function ProductsAdmin() {
                         ))}
                     </select>
 
-                    {/* Benefits */}
+                    {/* Features */}
                     <div>
-                        <p className="font-medium">Benefits</p>
-                        {benefits.map((b, i) => (
+                        <p className="font-medium">Features</p>
+                        {features.map((b, i) => (
                             <div key={i} className="flex gap-2 mt-2">
                                 <input
                                     value={b}
-                                    onChange={(e) => updateBenefit(i, e.target.value)}
+                                    onChange={(e) => {
+                                        const copy = [...features];
+                                        copy[i] = e.target.value;
+                                        setFeatures(copy);
+                                    }}
                                     className="border border-gray-200 px-3 py-2 rounded w-full"
                                 />
-                                <button onClick={() => removeBenefit(i)}>✕</button>
+                                <button
+                                    onClick={() =>
+                                        setFeatures(features.filter((_, index) => index !== i))
+                                    }
+                                >
+                                    ✕
+                                </button>
                             </div>
                         ))}
-                        <button onClick={addBenefit} className="text-sm mt-2 text-brand">
-                            + Add Benefit
+                        <button
+                            onClick={() => setFeatures([...features, ""])}
+                            className="text-sm mt-2 text-brand"
+                        >
+                            + Add Feature
+                        </button>
+                    </div>
+
+                    {/* Specifications */}
+                    <div>
+                        <p className="font-medium">Technical Specifications</p>
+
+                        {specs.map((s, i) => (
+                            <div key={i} className="grid grid-cols-2 gap-2 mt-2">
+                                <input
+                                    placeholder="Feature (e.g. Composition)"
+                                    value={s.feature}
+                                    onChange={(e) => {
+                                        const copy = [...specs];
+                                        copy[i].feature = e.target.value;
+                                        setSpecs(copy);
+                                    }}
+                                    className="border border-gray-200 px-3 py-2 rounded"
+                                />
+                                <input
+                                    placeholder="Value (e.g. Sodium Hyaluronate 1%)"
+                                    value={s.value}
+                                    onChange={(e) => {
+                                        const copy = [...specs];
+                                        copy[i].value = e.target.value;
+                                        setSpecs(copy);
+                                    }}
+                                    className="border border-gray-200 px-3 py-2 rounded"
+                                />
+                            </div>
+                        ))}
+
+                        <button
+                            onClick={() =>
+                                setSpecs([...specs, { feature: "", value: "" }])
+                            }
+                            className="text-sm mt-2 text-brand"
+                        >
+                            + Add Specification
                         </button>
                     </div>
 
@@ -372,6 +461,50 @@ export default function ProductsAdmin() {
                                 </div>
                             )}
 
+                        </div>
+
+                        {/* IMAGE 3 - HEADER BACKGROUND */}
+                        <div className="space-y-3">
+                            <label className="text-sm font-medium text-gray-700">
+                                Header Background Image (16:9)
+                            </label>
+
+                            <label className="flex flex-col items-center justify-center w-full px-4 py-6 border border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-brand transition text-sm text-gray-500">
+                                <span className="text-center">
+                                    Upload header background image
+                                    <br />
+                                    <span className="text-xs text-gray-400">
+                                        Recommended size: 1920 × 1080
+                                    </span>
+                                </span>
+
+                                <input
+                                    type="file"
+                                    className="hidden"
+                                    onChange={(e) =>
+                                        handleImage3(e.target.files?.[0] || null)
+                                    }
+                                />
+                            </label>
+
+                            {preview3 && (
+                                <div className="flex items-center gap-4">
+
+                                    <img
+                                        src={preview3}
+                                        className="w-full h-32 object-cover rounded border"
+                                    />
+                                    <button
+                                        onClick={() => {
+                                            setImage3(null);
+                                            setPreview3(null);
+                                        }}
+                                        className="text-sm text-red-500"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            )}
                         </div>
 
                     </div>

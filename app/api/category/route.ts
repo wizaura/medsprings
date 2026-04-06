@@ -6,6 +6,8 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
     });
 
+    console.log(categories,'car')
+
     return Response.json(categories);
 
   } catch (error) {

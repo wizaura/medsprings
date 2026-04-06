@@ -25,7 +25,6 @@ export default function ProductViewModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-
       {/* Overlay */}
       <div
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
@@ -33,13 +32,16 @@ export default function ProductViewModal({
       />
 
       {/* Modal */}
-      <div className="relative bg-white w-full max-w-4xl rounded-2xl p-6 shadow-xl max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-white w-full max-w-5xl rounded-2xl p-6 shadow-xl max-h-[90vh] overflow-y-auto">
 
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold">
-            {product.name}
-          </h2>
+          <div>
+            <h2 className="text-xl font-semibold">{product.name}</h2>
+            {product.tagline && (
+              <p className="text-sm text-gray-500">{product.tagline}</p>
+            )}
+          </div>
 
           <button
             onClick={onClose}
@@ -84,6 +86,19 @@ export default function ProductViewModal({
               </div>
             )}
 
+            {/* Header Background Preview */}
+            {product.image3 && (
+              <div className="mt-6">
+                <p className="text-sm text-gray-400 mb-2">
+                  Header Background
+                </p>
+                <img
+                  src={product.image3}
+                  className="w-full h-32 object-cover rounded-lg border"
+                />
+              </div>
+            )}
+
           </div>
 
           {/* RIGHT → Details */}
@@ -96,6 +111,15 @@ export default function ProductViewModal({
               </p>
             </div>
 
+            {product.shortDesc && (
+              <div>
+                <p className="text-sm text-gray-400">Short Description</p>
+                <p className="text-gray-700 text-sm">
+                  {product.shortDesc}
+                </p>
+              </div>
+            )}
+
             <div>
               <p className="text-sm text-gray-400">Description</p>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -103,24 +127,47 @@ export default function ProductViewModal({
               </p>
             </div>
 
-            {/* Benefits */}
-            {product.benefits?.length > 0 && (
+            {/* Features */}
+            {product.features?.length > 0 && (
               <div>
                 <p className="text-sm text-gray-400 mb-2">
-                  Key Benefits
+                  Key Features
                 </p>
 
                 <ul className="space-y-2">
-                  {product.benefits.map((b: string, i: number) => (
+                  {product.features.map((f: string, i: number) => (
                     <li
                       key={i}
                       className="flex items-start gap-2 text-sm text-gray-700"
                     >
                       <span className="text-brand mt-1">✔</span>
-                      {b}
+                      {f}
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {/* Specifications */}
+            {product.specifications?.length > 0 && (
+              <div>
+                <p className="text-sm text-gray-400 mb-2">
+                  Technical Specifications
+                </p>
+
+                <div className="border border-gray-300 rounded-lg overflow-hidden text-sm">
+                  {product.specifications.map((s: any, i: number) => (
+                    <div
+                      key={i}
+                      className="grid grid-cols-2 border-b border-gray-300 last:border-b-0"
+                    >
+                      <div className="bg-gray-50 p-2 font-medium">
+                        {s.feature}
+                      </div>
+                      <div className="p-2">{s.value}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 
@@ -129,7 +176,6 @@ export default function ProductViewModal({
         </div>
 
       </div>
-
     </div>
   );
 }

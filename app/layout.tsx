@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "react-hot-toast";
+import AOSProvider from "@/components/common/AOSProvider";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -52,9 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${figtree.variable} antialiased`}>
-        <Navbar />
+        <AOSProvider />
 
-        <main className="mt-20">
+        <main>
           {children}
         </main>
 

@@ -31,6 +31,7 @@ export default async function ProductsListPage({
                 title={data.name}
                 description="Discover advanced medical solutions designed to support healthcare professionals with precision, 
                 safety, and performance in every clinical setting."
+                image={data.image}
             />
             <CategoryProducts data={data} />
         </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 async function getCategories() {
+    console.log("yes")
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/category`, {
         cache: "no-store",
     });

@@ -1,15 +1,25 @@
-import AboutHero from "@/components/about/Hero";
-import CompanyProfile from "@/components/about/CompanyProfile";
+import WhyPartner from "@/components/about/Why";
 import MissionVision from "@/components/about/MissionVision";
-import QualityAssurance from "@/components/about/QualityAssurance";
+import { AboutIntro } from "@/components/about/Intro";
+import { AboutIntegrity } from "@/components/about/Integrity";
+import { Advantage } from "@/components/about/Advantage";
+import { OurStory } from "@/components/about/Story";
+import PageHero from "@/components/common/PageHero";
 
 export default function AboutPage() {
     return (
         <>
-            <AboutHero />
-            <CompanyProfile />
+            <PageHero
+                title="About Medsprings"
+                description="Precision Solutions for Global Surgery. Advancing the Standards of Clinical Excellence."
+                image="/about-11.jpg"
+            />
+            <AboutIntro />
+            <AboutIntegrity />
+            <Advantage />
+            <OurStory />
             <MissionVision />
-            <QualityAssurance />
+            <WhyPartner />
         </>
     );
 }

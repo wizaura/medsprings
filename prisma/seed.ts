@@ -11,11 +11,11 @@ async function main() {
     return;
   }
 
-  const hashed = await bcrypt.hash("admin123", 10);
+  const hashed = await bcrypt.hash("Melb123S", 10);
 
   await prisma.user.create({
     data: {
-      email: "admin@medsprings.com",
+      email: "melbinmathew.dev@gmail.com",
       password: hashed,
       role: "ADMIN",
     },

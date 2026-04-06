@@ -1,26 +1,19 @@
 // app/contact/page.tsx
 
 import ContactForm from "@/components/contact/ContactForm";
-import ContactMap from "@/components/contact/GoogleMapsSection";
 import PageHero from "@/components/common/PageHero";
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ product?: string }>;
-}) {
-  const { product } = await searchParams;
+export default async function ContactPage() {
 
   return (
     <>
       <PageHero
-        title="Contact Us"
-        description="Have questions about our products or want to discuss a partnership? Our team is here to assist you."
+        title="Advanced Healthcare, Trusted Doctors"
+        description="MedSprings offers modern medical care with experienced professionals and world-class facilities."
+        image="/about-11.jpg"
       />
 
-      <ContactForm preselectedProduct={product} />
-
-      <ContactMap />
+      <ContactForm />
     </>
   );
 }

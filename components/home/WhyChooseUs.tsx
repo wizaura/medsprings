@@ -50,27 +50,24 @@ export default function WhyChooseUs() {
 
             {/* Features */}
             <div className="max-w-7xl mx-auto mt-16 grid md:grid-cols-3 gap-10 md:gap-6">
-
                 {features.map((feature, index) => {
                     const Icon = feature.icon;
 
                     return (
                         <div
                             key={index}
-                            className={`flex gap-5 px-6 ${index !== features.length - 1 ? "md:border-r md:border-gray-200" : ""
+                            data-aos="fade-up"
+                            data-aos-delay={index * 150}
+                            className={`flex gap-5 px-6 ${index !== features.length - 1
+                                    ? "md:border-r md:border-gray-200"
+                                    : ""
                                 }`}
                         >
-
-                            {/* Icon */}
                             <div className="bg-brand text-white w-12 h-12 flex items-center justify-center rounded-md shrink-0">
-
                                 <Icon size={20} />
-
                             </div>
 
-                            {/* Text */}
                             <div>
-
                                 <h3 className="text-lg font-semibold text-gray-900">
                                     {feature.title}
                                 </h3>
@@ -78,13 +75,10 @@ export default function WhyChooseUs() {
                                 <p className="text-gray-600 text-sm mt-2">
                                     {feature.desc}
                                 </p>
-
                             </div>
-
                         </div>
                     );
                 })}
-
             </div>
 
         </section>

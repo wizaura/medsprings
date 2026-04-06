@@ -8,41 +8,45 @@ async function getCategories() {
   });
 
   if (!res.ok) return [];
-
   const data = await res.json();
-
   return data.slice(0, 3);
 }
 
 export default async function Possibilities() {
-
   const items = await getCategories();
 
   return (
     <section className="bg-brand text-white py-24 px-6">
-
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
         <div className="text-center mb-16">
-
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-wide">
+          <h2
+            data-aos="fade-up"
+            className="text-3xl md:text-4xl font-semibold tracking-wide"
+          >
             SEE NEW POSSIBILITIES
           </h2>
 
-          <p className="mt-4 text-sm md:text-base text-white/80 max-w-sm mx-auto">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="mt-4 text-sm md:text-base text-white/80 max-w-sm mx-auto"
+          >
             Ophthalmic Intelligence. Trusted Worldwide.
             Technologies and tools shaped by clinical insight.
           </p>
-
         </div>
 
         {/* Cards */}
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-4">
-
           {items.map((item: any, index: number) => (
-            <div key={index} className="group">
-
+            <div
+              key={index}
+              data-aos="zoom-in"
+              data-aos-delay={index * 150}
+              className="group"
+            >
               <div className="relative">
 
                 {/* Image */}
@@ -58,7 +62,7 @@ export default async function Possibilities() {
 
                 {/* Arrow Button */}
                 <Link
-                  href={`/categories/${item.slug}`} // 🔥 dynamic
+                  href={`/categories/${item.slug}`}
                   className="group absolute -bottom-6 left-1/2 -translate-x-1/2 z-50"
                 >
                   <div className="cursor-pointer bg-white group-hover:bg-brand w-12 h-12 rounded-full flex items-center justify-center shadow-md transition">
@@ -72,14 +76,15 @@ export default async function Possibilities() {
               <h3 className="text-center mt-10 text-xl font-bold">
                 {item.name}
               </h3>
-
             </div>
           ))}
-
         </div>
 
-        {/* 🔥 SMALL VIEW ALL LINK */}
-        <div className="text-end mt-6">
+        {/* View All */}
+        <div
+          data-aos="fade-left"
+          className="text-end mt-6"
+        >
           <Link
             href="/categories"
             className="text-sm text-white/80 hover:text-white hover:underline hover:underline-offset-4 transition"
@@ -89,7 +94,6 @@ export default async function Possibilities() {
         </div>
 
       </div>
-
     </section>
   );
 }
