@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
-const secret = new TextEncoder().encode("supersecretkey123");
+const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
 
-export async function middleware(req: any) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (pathname === "/admin/login") {
@@ -18,7 +18,7 @@ export async function middleware(req: any) {
     }
 
     try {
-      await jwtVerify(token, secret); // ✅ FIX
+      await jwtVerify(token, secret);
       console.log("VALID TOKEN");
     } catch (err) {
       console.log("JWT ERROR:", err);

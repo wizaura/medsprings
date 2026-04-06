@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 async function main() {
   const existing = await prisma.user.findUnique({
-    where: { email: "admin@medsprings.com" },
+    where: { email: "melbinmathew.dev@gmail.com" },
   });
 
   if (existing) {
