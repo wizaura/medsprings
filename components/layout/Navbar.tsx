@@ -87,7 +87,7 @@ export default function Navbar() {
         {/* MOBILE - ALWAYS VISIBLE */}
         <div className="flex md:hidden items-center justify-between">
           <Link href="/">
-            <Image src="/logo_1.png" alt="Medsprings" width={110} height={40} />
+            <Image src={scrolled ? `/logo_1.png` : `/logo-no-scroll.png`} alt="Medsprings" width={200} height={60} />
           </Link>
 
           <button onClick={() => setOpen(!open)}>
