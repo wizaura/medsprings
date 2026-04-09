@@ -40,8 +40,8 @@ export default function Navbar() {
     <header className="fixed top-4 left-0 w-full z-50 transition-all duration-300">
       <div
         className={`mx-auto max-w-6xl px-6 py-3 border transition-all duration-300 ${scrolled
-            ? "bg-white shadow-md rounded-xl border-gray-200"
-            : "bg-transparent border-transparent"
+          ? "bg-white shadow-md rounded-xl border-gray-200"
+          : "bg-transparent border-transparent"
           }`}
       >
 
@@ -52,9 +52,9 @@ export default function Navbar() {
             data-aos="fade-down"
           >
             {/* Logo */}
-            <div className="flex justify-start brightness-1">
+            <div className="flex justify-start mt-2">
               <Link href="/">
-                <Image src="/logo_1.png" alt="Medsprings" width={140} height={40} />
+                <Image src="/logo-no-scroll.png" alt="Medsprings" width={200} height={60} />
               </Link>
             </div>
 
@@ -64,9 +64,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`transition ${isActive(link.href)
-                      ? "text-cyan-300"
-                      : "hover:text-cyan-300"
+                  className={`transition text-lg ${isActive(link.href)
+                    ? "text-cyan-300"
+                    : "hover:text-cyan-300"
                     }`}
                 >
                   {link.name}
@@ -75,9 +75,11 @@ export default function Navbar() {
             </nav>
 
             {/* Phone */}
-            <div className="flex justify-end items-center gap-2 text-white text-sm">
+            <div className="flex justify-end items-center gap-2 text-white hover:text-cyan-300 font-bold text-sm">
               <Phone size={16} />
-              +0123-456-789
+              <a href="tel:+917200820012">
+                +91 7200 8200 12
+              </a>
             </div>
           </div>
         )}
@@ -90,9 +92,9 @@ export default function Navbar() {
 
           <button onClick={() => setOpen(!open)}>
             {open ? (
-              <X className={scrolled ? "text-black" : "text-white"} />
+              <X className={scrolled ? "cursor-pointer hover:text-red-500 text-black" : "cursor-pointer hover:text-red-500 text-white"} />
             ) : (
-              <Menu className={scrolled ? "text-black" : "text-white"} />
+              <Menu className={scrolled ? "cursor-pointer text-black" : "text-white"} />
             )}
           </button>
         </div>
@@ -101,7 +103,7 @@ export default function Navbar() {
         {scrolled && (
           <div className="hidden md:flex items-center justify-between" data-aos="fade-down">
             <Link href="/">
-              <Image src="/logo.jpg" alt="Medsprings" width={120} height={40} />
+              <Image src="/logo.jpg" alt="Medsprings" width={160} height={60} />
             </Link>
 
             <nav className="flex items-center gap-8 font-medium">
@@ -110,8 +112,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`transition ${isActive(link.href)
-                      ? "text-brand"
-                      : "text-gray-700 hover:text-brand"
+                    ? "text-brand"
+                    : "text-gray-700 hover:text-brand"
                     }`}
                 >
                   {link.name}
@@ -140,9 +142,11 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <div className="flex items-center gap-2 pt-2 text-sm text-gray-600">
+          <div className="flex justify-end items-center gap-2 text-gray-700 hover:text-brand font-bold text-sm">
             <Phone size={16} />
-            +0123-456-789
+            <a href="tel:+917200820012">
+              +91 7200 8200 12
+            </a>
           </div>
         </nav>
       </div>

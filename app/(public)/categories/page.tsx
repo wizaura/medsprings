@@ -7,7 +7,8 @@ export default function CategoryList() {
             <PageHero
                 title="Our Products"
                 description="Explore our range of ophthalmic technologies designed to
-            enhance clinical performance and patient outcomes."
+                enhance clinical performance and patient outcomes."
+                image="/product-header.jpg"
             />
             <Categories />
         </div>

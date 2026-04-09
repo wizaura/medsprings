@@ -23,15 +23,15 @@ export default async function Possibilities() {
         <div className="text-center mb-16">
           <h2
             data-aos="fade-up"
-            className="text-3xl md:text-4xl font-semibold tracking-wide"
+            className="text-3xl md:text-5xl font-semibold tracking-wide"
           >
-            SEE NEW POSSIBILITIES
+            See New Possibilities
           </h2>
 
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="mt-4 text-sm md:text-base text-white/80 max-w-sm mx-auto"
+            className="mt-4 text-sm md:text-lg text-white/80 max-w-sm mx-auto"
           >
             Ophthalmic Intelligence. Trusted Worldwide.
             Technologies and tools shaped by clinical insight.

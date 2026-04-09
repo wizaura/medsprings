@@ -15,9 +15,9 @@ export default async function Footer() {
 
           {/* Logo */}
           <div className="md:col-span-2">
-            <Image src="/logo.jpg" alt="Medsprings" width={120} height={40} />
+            <Image src="/logo-no-scroll.png" alt="Medsprings" width={240} height={80} />
 
-            <p className="mt-4 text-white/80 text-sm max-w-xs">
+            <p className="mt-4 text-white/80 text-md max-w-xs">
               Delivering advanced ophthalmic technologies trusted worldwide.
             </p>
 
@@ -47,7 +47,7 @@ export default async function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
 
-            <div className="flex flex-col gap-3 text-white/80 text-sm">
+            <div className="flex flex-col gap-3 text-white/80 text-md">
 
               <Link
                 href="/"
@@ -77,7 +77,7 @@ export default async function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
 
-            <div className="flex flex-col gap-3 text-white/80 text-sm">
+            <div className="flex flex-col gap-3 text-white/80 text-md">
 
               <Link
                 href="/categories"

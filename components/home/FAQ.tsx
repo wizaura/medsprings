@@ -56,7 +56,7 @@ export default function FAQ() {
         <div className="my-auto">
           <p
             data-aos="fade-up"
-            className="text-brand uppercase tracking-wider text-sm font-medium"
+            className="text-brand uppercase tracking-wider text-sm md:text-base font-medium"
           >
             FAQ
           </p>
@@ -72,7 +72,7 @@ export default function FAQ() {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="mt-6 text-gray-600 max-w-md"
+            className="mt-6 text-gray-600 md:text-lg max-w-md"
           >
             Everything you need to know about partnering with Medsprings,
             product quality, regulatory support, and global distribution.
@@ -95,7 +95,7 @@ export default function FAQ() {
                   onClick={() => toggle(index)}
                   className="flex justify-between items-center w-full text-left"
                 >
-                  <span className="font-medium text-gray-900">
+                  <span className="font-medium md:text-lg text-gray-900">
                     {faq.question}
                   </span>
 
@@ -107,7 +107,7 @@ export default function FAQ() {
                 </button>
 
                 {open && (
-                  <p className="mt-4 text-gray-600 text-sm leading-relaxed">
+                  <p className="mt-4 text-gray-600 text-sm md:text-base leading-relaxed">
                     {faq.answer}
                   </p>
                 )}

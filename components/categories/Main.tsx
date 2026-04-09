@@ -22,11 +22,11 @@ export default async function Categories() {
                 {/* Sub Heading */}
                 <div className="mb-12 text-center">
 
-                    <h2 className="text-2xl md:text-3xl text-brand font-semibold">
+                    <h2 className="text-3xl md:text-5xl text-brand font-semibold">
                         Browse Categories
                     </h2>
 
-                    <p className="mt-2 text-gray-500 text-base">
+                    <p className="mt-2 text-gray-500 text-base md:text-lg">
                         Select a category to explore products
                     </p>
 

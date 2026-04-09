@@ -29,7 +29,7 @@ export default function WhyChooseUs() {
 
                     <div className="w-10 h-[2px] bg-brand"></div>
 
-                    <span className="text-brand text-base font-medium">
+                    <span className="text-brand text-base md:text-lg font-medium">
                         Why choose us
                     </span>
 
@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
                 </h2>
 
                 {/* Subtitle */}
-                <p className="mt-6 text-gray-600 max-w-xl mx-auto text-sm md:text-base">
+                <p className="mt-6 text-gray-600 max-w-xl mx-auto text-sm md:text-lg">
                     We are dedicated to providing the highest level of service, delivering
                     We are dedicated to providing the highest level of service, delivering
                 </p>
@@ -68,11 +68,11 @@ export default function WhyChooseUs() {
                             </div>
 
                             <div>
-                                <h3 className="text-lg font-semibold text-gray-900">
+                                <h3 className="text-lg md:text-xl font-semibold text-gray-900">
                                     {feature.title}
                                 </h3>
 
-                                <p className="text-gray-600 text-sm mt-2">
+                                <p className="text-gray-600 text-sm md:text-base mt-2">
                                     {feature.desc}
                                 </p>
                             </div>

@@ -13,11 +13,11 @@ export default function GlobalMap() {
 
   return (
     <section className="py-16 bg-white text-center">
-      <h2 className="text-3xl md:text-4xl font-semibold text-brand mb-2">
+      <h2 className="text-3xl md:text-5xl font-semibold text-brand mb-2">
         Global Presence
       </h2>
 
-      <p className="text-gray-500 mb-10 max-w-2xl mx-auto">
+      <p className="text-gray-500 md:text-lg mb-10 max-w-2xl mx-auto">
         Expanding access to advanced ophthalmic technologies across international markets.
       </p>
 
@@ -66,7 +66,7 @@ export default function GlobalMap() {
             </div>
 
             {/* Label */}
-            <p className="text-xs mt-2 text-gray-700 font-medium whitespace-nowrap">
+            <p className="text-xs mt-2 text-gray-700 font-semibold whitespace-nowrap">
               {loc.name}
             </p>
           </div>

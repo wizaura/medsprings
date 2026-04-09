@@ -105,9 +105,9 @@ export default function ContactForm() {
               +91 7200829697
             </a>
 
-            <a href="mailto:info@medsprings.com" className="flex items-center gap-4 hover:text-brand transition">
+            <a href="mailto:info@medsprings.in" className="flex items-center gap-4 hover:text-brand transition">
               <Mail className="text-brand" size={20} />
-              info@medsprings.com
+              info@medsprings.in
             </a>
           </div>
 

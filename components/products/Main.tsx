@@ -22,11 +22,11 @@ export default function CategoryProducts({ data }: { data: any }) {
                 {/* Top Heading */}
                 <div className="mb-16 text-center">
 
-                    <h2 className="text-2xl md:text-3xl font-semibold">
+                    <h2 className="text-3xl md:text-5xl font-semibold">
                         {name} Products
                     </h2>
 
-                    <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed">
                         Explore a curated range of high-quality medical products engineered
                         for precision, reliability, and consistent clinical performance
                         across modern healthcare environments.

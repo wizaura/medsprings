@@ -10,7 +10,7 @@ export default function About() {
                 <div className="text-center mb-16">
                     <h2
                         data-aos="fade-up"
-                        className="text-3xl md:text-4xl font-semibold text-brand"
+                        className="text-3xl md:text-5xl font-semibold text-brand"
                     >
                         About Us
                     </h2>
@@ -18,7 +18,7 @@ export default function About() {
                     <p
                         data-aos="fade-up"
                         data-aos-delay="200"
-                        className="mt-4 text-gray-600 max-w-xl mx-auto text-sm md:text-base"
+                        className="mt-4 text-gray-600 max-w-xl mx-auto text-sm md:text-lg"
                     >
                         Ophthalmic Intelligence. Trusted Worldwide. <br />
                         Technologies and tools shaped by clinical insight.
@@ -45,11 +45,11 @@ export default function About() {
 
                     {/* Text Content */}
                     <div data-aos="fade-left">
-                        <h3 className="text-3xl md:text-4xl font-semibold text-brand leading-tight">
+                        <h3 className="text-3xl md:text-5xl font-semibold text-brand leading-tight">
                             Inspiring You to Thrive
                         </h3>
 
-                        <p className="mt-6 text-gray-600 leading-relaxed text-sm md:text-base">
+                        <p className="mt-6 text-gray-600 leading-relaxed text-sm md:text-lg">
                             There is a moment after every successful procedure — when a patient 
                             sees clearly, breathes deeply, and feels the world rush back in. 
                             That moment is why Medsprings exists. We didn't start with a catalogue.

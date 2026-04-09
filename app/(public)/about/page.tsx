@@ -12,7 +12,7 @@ export default function AboutPage() {
             <PageHero
                 title="About Medsprings"
                 description="Precision Solutions for Global Surgery. Advancing the Standards of Clinical Excellence."
-                image="/about-11.jpg"
+                image="/about-header.jpg"
             />
             <AboutIntro />
             <AboutIntegrity />

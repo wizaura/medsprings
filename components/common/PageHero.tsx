@@ -45,7 +45,7 @@ export default function PageHero({
         {/* Left Content */}
         <div className="flex items-center px-8 md:px-16 relative z-10">
           <div>
-            <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
               {title}
             </h1>
 
