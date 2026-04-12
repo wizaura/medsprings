@@ -15,7 +15,22 @@ export default async function Footer() {
 
           {/* Logo */}
           <div className="md:col-span-2">
-            <Image src="/logo-no-scroll.png" alt="Medsprings" width={240} height={80} />
+            <div className="flex items-center gap-2">
+              <Image
+                src="/logo.png"
+                alt="Medsprings Logo"
+                width={36}
+                height={36}
+                className="rounded-lg"
+              />
+
+              <Image
+                src="/name-white.png"
+                alt="Medsprings"
+                width={280}
+                height={90}
+              />
+            </div>
 
             <p className="mt-4 text-white/80 text-md max-w-xs">
               Delivering advanced ophthalmic technologies trusted worldwide.

@@ -1,13 +1,28 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+    <section className="relative min-h-screen text-white overflow-hidden flex flex-col justify-end">
 
-      {/* SEO H1 (hidden but accessible) */}
-      <h1 className="sr-only">Medsprings - Ophthalmic Intelligence, Trusted Worldwide</h1>
+      {/* SEO H1 */}
+      <h1 className="sr-only">
+        Medsprings - Ophthalmic Intelligence, Trusted Worldwide
+      </h1>
 
-      {/* Video Background */}
+      {/* Video */}
       <video
         autoPlay
         muted
@@ -18,29 +33,31 @@ export default function Hero() {
         <source src="/home-hero-v.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Overlay (dynamic) */}
+      <div
+        className={`absolute inset-0 transition-all duration-1000 ${
+          loaded ? "bg-black/50" : "bg-black/20"
+        }`}
+      />
 
       {/* Content */}
-      <div className="relative z-10 px-6 md:px-20 max-w-6xl">
+      <div
+        className={`relative z-10 px-6 md:px-20 max-w-6xl text-center ml-auto pb-12 transition-all duration-1000 ${
+          loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
 
-        <h2
-          data-aos="fade-up"
-          className="text-4xl md:text-6xl font-semibold leading-tight"
-        >
-          Ophthalmic Intelligence,
+        <h2 className="text-4xl md:text-6xl font-semibold leading-tight">
+          The Blue Print For 
           <br />
-          Trusted Worldwide
+          Clinical Precision…
         </h2>
 
-        <p
-          data-aos="fade-up"
-          data-aos-delay="300"
-          className="mt-6 text-gray-200 text-sm md:text-lg max-w-2xl leading-relaxed"
-        >
-          Medsprings engineers ophthalmic technologies that strengthen
-          the continuum of care across high-volume and high-performance
-          settings.
+        <p className="mt-6 text-gray-200 text-sm md:text-lg max-w-2xl leading-relaxed">
+          Medsprings architects global healthcare solutions by pairing elite 
+          product quality with seamless, high-efficiency processing. 
+          Grounded in value-based principles, we ensure that clinical precision 
+          is supported by a foundation of trust and dependable performance.
         </p>
 
       </div>

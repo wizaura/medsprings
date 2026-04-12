@@ -16,8 +16,8 @@ export default async function Possibilities() {
   const items = await getCategories();
 
   return (
-    <section className="bg-brand text-white py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-brand text-white py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <div className="text-center mb-16">
@@ -25,55 +25,52 @@ export default async function Possibilities() {
             data-aos="fade-up"
             className="text-3xl md:text-5xl font-semibold tracking-wide"
           >
-            See New Possibilities
+            Architects of Superior Clinical Outcomes
           </h2>
 
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="mt-4 text-sm md:text-lg text-white/80 max-w-sm mx-auto"
+            className="mt-4 text-sm md:text-lg text-white/80 max-w-xl mx-auto"
           >
-            Ophthalmic Intelligence. Trusted Worldwide.
-            Technologies and tools shaped by clinical insight.
+            Medsprings streamlines the path from procurement to patient care 
+            through high-efficiency processing and elite product standards.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
           {items.map((item: any, index: number) => (
             <div
               key={index}
-              data-aos="zoom-in"
+              data-aos="fade-up"
               data-aos-delay={index * 150}
               className="group"
             >
-              <div className="relative">
+              <div className="relative rounded-xl overflow-hidden">
 
                 {/* Image */}
-                <div className="rounded-lg overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={500}
-                    height={500}
-                    className="w-full h-[320px] object-cover group-hover:scale-105 transition duration-300"
-                  />
-                </div>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={500}
+                  height={500}
+                  className="w-full h-[300px] object-cover transition duration-500 group-hover:scale-105"
+                />
 
-                {/* Arrow Button */}
+                {/* Arrow */}
                 <Link
                   href={`/categories/${item.slug}`}
-                  className="group absolute -bottom-6 left-1/2 -translate-x-1/2 z-50"
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10"
                 >
                   <div className="cursor-pointer bg-white group-hover:bg-brand w-12 h-12 rounded-full flex items-center justify-center shadow-md transition">
                     <ArrowUpRight className="text-brand group-hover:text-white w-5 h-5" />
                   </div>
                 </Link>
-
               </div>
 
               {/* Title */}
-              <h3 className="text-center mt-10 text-xl font-bold">
+              <h3 className="text-center mt-6 text-xl font-semibold">
                 {item.name}
               </h3>
             </div>
@@ -83,7 +80,7 @@ export default async function Possibilities() {
         {/* View All */}
         <div
           data-aos="fade-left"
-          className="text-end mt-6"
+          className="flex justify-end mt-8"
         >
           <Link
             href="/categories"

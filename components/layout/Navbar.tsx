@@ -39,8 +39,8 @@ export default function Navbar() {
   return (
     <header className="fixed top-4 left-0 w-full z-50 transition-all duration-300">
       <div
-        className={`mx-auto max-w-6xl px-6 py-3 border transition-all duration-300 ${scrolled
-          ? "bg-white shadow-md rounded-xl border-gray-200"
+        className={`mx-auto max-w-7xl px-6 py-3 border transition-all duration-300 ${scrolled
+          ? "bg-white shadow-md rounded-full border-gray-200"
           : "bg-transparent border-transparent"
           }`}
       >
@@ -52,9 +52,24 @@ export default function Navbar() {
             data-aos="fade-down"
           >
             {/* Logo */}
-            <div className="flex justify-start mt-2">
-              <Link href="/">
-                <Image src="/logo-no-scroll.png" alt="Medsprings" width={200} height={60} />
+            <div className="flex justify-start -ml-2">
+              <Link href="/" className="flex items-center gap-3">
+
+                <Image
+                  src="/logo.png"
+                  alt="Medsprings Logo"
+                  width={36}
+                  height={36}
+                  className="rounded-lg"
+                />
+
+                <Image
+                  src="/name-white.png"
+                  alt="Medsprings"
+                  width={300}
+                  height={100}
+                />
+
               </Link>
             </div>
 
@@ -86,27 +101,85 @@ export default function Navbar() {
 
         {/* MOBILE - ALWAYS VISIBLE */}
         <div className="flex md:hidden items-center justify-between">
+          {/* Logo */}
           <Link href="/">
-            <Image src={scrolled ? `/logo_1.png` : `/logo-no-scroll.png`} alt="Medsprings" width={200} height={60} />
+            {scrolled ? (
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/logo.png"
+                  alt="Medsprings Logo"
+                  width={30}
+                  height={30}
+                  className="rounded-lg"
+                />
+
+                <Image
+                  src="/name-colour.png"
+                  alt="Medsprings"
+                  width={200}
+                  height={60}
+                />
+              </div>
+            ) : (
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/logo.png"
+                  alt="Medsprings Logo"
+                  width={30}
+                  height={30}
+                  className="rounded-lg"
+                />
+                <Image
+                  src="/name-white.png"
+                  alt="Medsprings"
+                  width={200}
+                  height={60}
+                />
+              </div>
+            )}
           </Link>
 
+          {/* Toggle */}
           <button onClick={() => setOpen(!open)}>
             {open ? (
-              <X className={scrolled ? "cursor-pointer hover:text-red-500 text-black" : "cursor-pointer hover:text-red-500 text-white"} />
+              <X
+                size={26}
+                className={`cursor-pointer ${scrolled
+                  ? "text-black hover:text-red-500"
+                  : "text-white hover:text-red-500"
+                  }`}
+              />
             ) : (
-              <Menu className={scrolled ? "cursor-pointer text-black" : "text-white"} />
+              <Menu
+                size={26}
+                className={scrolled ? "text-black" : "text-white"}
+              />
             )}
           </button>
+
         </div>
 
         {/* DESKTOP - SCROLLED */}
         {scrolled && (
           <div className="hidden md:flex items-center justify-between" data-aos="fade-down">
-            <Link href="/">
-              <Image src="/logo.jpg" alt="Medsprings" width={160} height={60} />
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Medsprings Logo"
+                width={34}
+                height={34}
+                className="rounded-lg"
+              />
+
+              <Image
+                src="/name-colour.png"
+                alt="Medsprings"
+                width={300}
+                height={100}
+              />
             </Link>
 
-            <nav className="flex items-center gap-8 font-medium">
+            <nav className="flex items-center gap-8 text-lg font-medium">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -127,7 +200,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden mx-auto max-w-6xl mt-2 bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${open ? "max-h-[300px]" : "max-h-0"
+        className={`md:hidden mx-auto max-w-6xl bg-white rounded-3xl shadow-md overflow-hidden transition-all duration-300 ${open ? "max-h-[300px]" : "max-h-0"
           }`}
       >
         <nav className="flex flex-col gap-4 px-6 py-6 font-medium">

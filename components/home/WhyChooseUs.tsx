@@ -29,7 +29,7 @@ export default function WhyChooseUs() {
 
                     <div className="w-10 h-[2px] bg-brand"></div>
 
-                    <span className="text-brand text-base md:text-lg font-medium">
+                    <span className="text-brand text-xl md:text-3xl font-medium">
                         Why choose us
                     </span>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -32,12 +32,12 @@ const faqs = [
   {
     question: "What makes Medsprings a premium ophthalmic brand?",
     answer:
-      "Premium isn't a label — it's a process. From imported raw materials meeting international purity standards, to multi-layer quality checks and global compliance certifications, Medsprings is built on the same foundational rigor as the world's most trusted ophthalmic names — with the agility of a focused, innovation-driven company.",
+      "Premium isn't a label — it's a process. From imported raw materials meeting international purity standards, to multi-layer quality checks and global compliance certifications.",
   },
   {
     question: "What sets Medsprings products apart in terms of quality?",
     answer:
-      "It starts at the source. We use internationally sourced, pharma-grade raw materials — the same inputs that power the world's most respected ophthalmic brands. Every batch is processed under strict GMP protocols and validated against CE and ISO benchmarks before it reaches the operating room.",
+      "It starts at the source. We use internationally sourced, pharma-grade raw materials with strict GMP protocols and CE/ISO validation.",
   },
 ];
 
@@ -49,21 +49,13 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-12 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
-        {/* Left Side */}
+        {/* LEFT */}
         <div className="my-auto">
-          <p
-            data-aos="fade-up"
-            className="text-brand uppercase tracking-wider text-sm md:text-base font-medium"
-          >
-            FAQ
-          </p>
-
           <h2
             data-aos="fade-up"
-            data-aos-delay="100"
             className="text-3xl md:text-5xl font-semibold text-gray-900 max-w-lg"
           >
             Frequently Asked Questions
@@ -79,7 +71,7 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* Right Side */}
+        {/* RIGHT */}
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const open = active === index;
@@ -89,28 +81,39 @@ export default function FAQ() {
                 key={index}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                className="border border-gray-200 rounded-xl px-6 py-5 bg-gray-50 hover:bg-gray-100"
+                className={`rounded-xl border transition-all duration-300 ${
+                  open
+                    ? "bg-white border-gray-300 shadow-md"
+                    : "bg-gray-50 border-gray-200 hover:bg-gray-100"
+                }`}
               >
+                {/* Header */}
                 <button
                   onClick={() => toggle(index)}
-                  className="flex justify-between items-center w-full text-left"
+                  className="flex justify-between items-center w-full px-6 py-5 text-left"
                 >
                   <span className="font-medium md:text-lg text-gray-900">
                     {faq.question}
                   </span>
 
-                  {open ? (
-                    <Minus className="cursor-pointer text-gray-500 hover:text-brand" size={18} />
-                  ) : (
-                    <Plus className="cursor-pointer text-gray-500 hover:text-brand" size={18} />
-                  )}
+                  <Plus
+                    size={18}
+                    className={`cursor-pointer transition-transform duration-300 ${
+                      open ? "rotate-45 text-brand" : "text-gray-500"
+                    }`}
+                  />
                 </button>
 
-                {open && (
-                  <p className="mt-4 text-gray-600 text-sm md:text-base leading-relaxed">
+                {/* Content (Animated) */}
+                <div
+                  className={`px-6 overflow-hidden transition-all duration-300 ${
+                    open ? "max-h-40 pb-5" : "max-h-0"
+                  }`}
+                >
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     {faq.answer}
                   </p>
-                )}
+                </div>
               </div>
             );
           })}

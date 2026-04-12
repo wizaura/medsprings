@@ -6,25 +6,6 @@ export default function About() {
         <section className="py-16 px-6">
             <div className="max-w-7xl mx-auto">
 
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2
-                        data-aos="fade-up"
-                        className="text-3xl md:text-5xl font-semibold text-brand"
-                    >
-                        About Us
-                    </h2>
-
-                    <p
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                        className="mt-4 text-gray-600 max-w-xl mx-auto text-sm md:text-lg"
-                    >
-                        Ophthalmic Intelligence. Trusted Worldwide. <br />
-                        Technologies and tools shaped by clinical insight.
-                    </p>
-                </div>
-
                 {/* Content */}
                 <div className="grid md:grid-cols-2 gap-12 items-center">
 
