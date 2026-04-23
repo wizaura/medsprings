@@ -3,18 +3,23 @@ import { Briefcase, MessageSquare, Clipboard } from "lucide-react";
 const features = [
     {
         icon: Briefcase,
-        title: "Proven track record",
-        desc: "We are dedicated to providing the highest level of service, delivering",
+        title: "Certified Quality Assurance",
+        desc: "Eliminating clinical risk through rigorous international compliance and elite product engineering.",
     },
     {
         icon: MessageSquare,
-        title: "Collaborative approach",
-        desc: "We are dedicated to providing the highest level of service, delivering",
+        title: "Strategic Market Intelligence",
+        desc: "Leveraging deep international insights to deliver the specific ophthalmic technologies demanded by doctors",
     },
     {
         icon: Clipboard,
-        title: "Innovative solutions",
-        desc: "We leverage the latest technologies to deliver solutions.",
+        title: "Validated Reliability",
+        desc: "Building trust through a legacy of dependable performance and zero-compromise quality",
+    },
+    {
+        icon: Briefcase,
+        title: "Global Compliance Mastery",
+        desc: "Navigating international regulatory standards to ensure seamless integration into any healthcare ecosystem",
     },
 ];
 
@@ -42,14 +47,14 @@ export default function WhyChooseUs() {
 
                 {/* Subtitle */}
                 <p className="mt-6 text-gray-600 max-w-xl mx-auto text-sm md:text-lg">
-                    We are dedicated to providing the highest level of service, delivering
-                    We are dedicated to providing the highest level of service, delivering
+                    We look beyond the transaction to build long-term partnerships rooted in
+                    transparency, dependability, and global expertise.
                 </p>
 
             </div>
 
             {/* Features */}
-            <div className="max-w-7xl mx-auto mt-16 grid md:grid-cols-3 gap-10 md:gap-6">
+            <div className="max-w-7xl mx-auto mt-16 grid md:grid-cols-2 gap-10 md:gap-6">
                 {features.map((feature, index) => {
                     const Icon = feature.icon;
 
@@ -59,8 +64,8 @@ export default function WhyChooseUs() {
                             data-aos="fade-up"
                             data-aos-delay={index * 150}
                             className={`flex gap-5 px-6 ${index !== features.length - 1
-                                    ? "md:border-r md:border-gray-200"
-                                    : ""
+                                ? "md:border-r md:border-gray-200"
+                                : ""
                                 }`}
                         >
                             <div className="bg-brand text-white w-12 h-12 flex items-center justify-center rounded-md shrink-0">

@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -108,6 +108,22 @@ export default function ContactForm() {
             <a href="mailto:info@medsprings.in" className="flex items-center gap-4 hover:text-brand transition">
               <Mail className="text-brand" size={20} />
               info@medsprings.in
+            </a>
+
+            {/* Address */}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Medsprings+LLP+No+78+Poompuhar+Nagar+3rd+Street+Madurai+625107"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 hover:text-brand transition"
+            >
+              <MapPin className="text-brand mt-1" size={20} />
+              <div className="leading-relaxed">
+                Medsprings LLP,<br />
+                No. 78, Poompuhar Nagar 3rd Street,<br />
+                Madurai - 625 107,<br />
+                Tamil Nadu, India
+              </div>
             </a>
           </div>
 

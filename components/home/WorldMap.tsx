@@ -20,7 +20,7 @@ export default function GlobalMap() {
       </h2>
 
       <p className="text-gray-500 md:text-lg mb-10 max-w-2xl mx-auto">
-        Expanding access to advanced ophthalmic technologies across international markets.
+        Ensuring high-tier medical innovation transcends geographical boundaries. 
       </p>
 
       <div className="relative w-full max-w-7xl mx-auto aspect-[2/1]">

@@ -37,11 +37,11 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-4 left-0 w-full z-50 transition-all duration-300">
+    <header className={`fixed ${scrolled ? "top-0" : "top-4" } left-0 w-full z-50 transition-all duration-300`}>
       <div
-        className={`mx-auto max-w-7xl px-6 py-3 border transition-all duration-300 ${scrolled
-          ? "bg-white shadow-md rounded-full border-gray-200"
-          : "bg-transparent border-transparent"
+        className={`mx-auto px-6 py-3 border transition-all duration-300 ${scrolled
+          ? "bg-white shadow-md max-w-5xl rounded-b-3xl border-gray-200"
+          : "bg-transparent max-w-8xl md:mx-8  border-transparent"
           }`}
       >
 
@@ -58,16 +58,16 @@ export default function Navbar() {
                 <Image
                   src="/logo.png"
                   alt="Medsprings Logo"
-                  width={36}
-                  height={36}
+                  width={34}
+                  height={34}
                   className="rounded-lg"
                 />
 
                 <Image
                   src="/name-white.png"
                   alt="Medsprings"
-                  width={300}
-                  height={100}
+                  width={280}
+                  height={90}
                 />
 
               </Link>
@@ -166,16 +166,16 @@ export default function Navbar() {
               <Image
                 src="/logo.png"
                 alt="Medsprings Logo"
-                width={34}
-                height={34}
+                width={32}
+                height={32}
                 className="rounded-lg"
               />
 
               <Image
                 src="/name-colour.png"
                 alt="Medsprings"
-                width={300}
-                height={100}
+                width={260}
+                height={80}
               />
             </Link>
 

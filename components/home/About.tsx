@@ -16,7 +16,7 @@ export default function About() {
                     >
                         <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden">
                             <Image
-                                src="/home_about_1.jpg"
+                                src="/about-main.jpeg"
                                 alt="Eye care technology"
                                 fill
                                 className="object-cover"
