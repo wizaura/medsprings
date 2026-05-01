@@ -24,7 +24,7 @@ export function Advantage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2
             data-aos="fade-up"
-            className="text-3xl md:text-4xl font-semibold"
+            className="text-3xl md:text-5xl font-semibold"
           >
             The Medsprings Advantage
           </h2>

@@ -10,8 +10,8 @@ export default function AboutPage() {
     return (
         <>
             <PageHero
-                title="About Medsprings"
-                description="Precision Solutions for Global Surgery. Advancing the Standards of Clinical Excellence."
+                title="Who We Are"
+                description=""
                 image="/about-header.jpg"
             />
             <AboutIntro />

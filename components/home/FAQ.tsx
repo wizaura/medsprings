@@ -72,20 +72,20 @@ export default function FAQ() {
         </div>
 
         {/* RIGHT */}
-        <div className="space-y-4">
+        <div className="space-y-4"
+          data-aos="fade-up"
+          data-aos-delay={100}
+        >
           {faqs.map((faq, index) => {
             const open = active === index;
 
             return (
               <div
                 key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className={`rounded-xl border transition-all duration-300 ${
-                  open
+                className={`rounded-xl border transition-all duration-300 ${open
                     ? "bg-white border-gray-300 shadow-md"
                     : "bg-gray-50 border-gray-200 hover:bg-gray-100"
-                }`}
+                  }`}
               >
                 {/* Header */}
                 <button
@@ -98,17 +98,15 @@ export default function FAQ() {
 
                   <Plus
                     size={18}
-                    className={`cursor-pointer transition-transform duration-300 ${
-                      open ? "rotate-45 text-brand" : "text-gray-500"
-                    }`}
+                    className={`cursor-pointer transition-transform duration-300 ${open ? "rotate-45 text-brand" : "text-gray-500"
+                      }`}
                   />
                 </button>
 
                 {/* Content (Animated) */}
                 <div
-                  className={`px-6 overflow-hidden transition-all duration-300 ${
-                    open ? "max-h-40 pb-5" : "max-h-0"
-                  }`}
+                  className={`px-6 overflow-hidden transition-all duration-300 ${open ? "max-h-40 pb-5" : "max-h-0"
+                    }`}
                 >
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     {faq.answer}

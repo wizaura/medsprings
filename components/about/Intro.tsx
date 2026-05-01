@@ -6,9 +6,9 @@ export function AboutIntro() {
         {/* Sub Heading */}
         <p
           data-aos="fade-up"
-          className="text-brand font-medium tracking-wide uppercase text-sm"
+          className="text-brand font-medium tracking-wide uppercase text-md"
         >
-          About Us & Why Partner With Us
+          About Us
         </p>
 
         {/* Main Heading */}

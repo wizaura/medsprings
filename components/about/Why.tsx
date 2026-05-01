@@ -7,7 +7,7 @@ export default function WhyPartner() {
         <div className="text-center max-w-3xl mx-auto">
           <p
             data-aos="fade-up"
-            className="text-brand uppercase tracking-wider text-sm font-medium"
+            className="text-brand uppercase tracking-wider text-md font-medium"
           >
             Join Our Global Network
           </p>
@@ -15,9 +15,9 @@ export default function WhyPartner() {
           <h2
             data-aos="fade-up"
             data-aos-delay="100"
-            className="text-3xl md:text-4xl font-semibold mt-2"
+            className="text-3xl md:text-5xl font-semibold mt-2"
           >
-            Partner With Medsprings
+            Why Partner with Medsprings
           </h2>
 
           <p

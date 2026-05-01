@@ -24,7 +24,7 @@ export default function MissionVision() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p
             data-aos="fade-up"
-            className="text-brand uppercase tracking-wider text-sm font-medium"
+            className="text-brand uppercase tracking-wider text-md font-medium"
           >
             Vision & Mission
           </p>
@@ -32,7 +32,7 @@ export default function MissionVision() {
           <h2
             data-aos="fade-up"
             data-aos-delay="100"
-            className="text-3xl md:text-4xl font-semibold mt-2"
+            className="text-3xl md:text-5xl font-semibold mt-2"
           >
             Guided by Purpose. Driven by Precision.
           </h2>

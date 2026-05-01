@@ -8,8 +8,8 @@ export default async function ContactPage() {
   return (
     <>
       <PageHero
-        title="Advanced Healthcare, Trusted Doctors"
-        description="MedSprings offers modern medical care with experienced professionals and world-class facilities."
+        title="Let's Design Your Clinical Success Story - Let's Connect"
+        description="We are ready to streamline your journey from initial inquiry to global distribution."
         image="/about-11.jpg"
       />
 
